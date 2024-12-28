@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post Your Plans</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url("/bora-bora-3023437_640.jpg");
+            background-repeat: no-repeat;
+        
+            background-size: cover;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            background: rgba(0, 0, 0, 0.4);
+            padding: 230px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        form label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        form input,
+        form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            margin-right: 2%;
+            border: none;
+            border-radius: 5px;
+        }
+        form button {
+            padding-right: 20px;
+            font-size: 1rem;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        form button:hover {
+            background: #c0392b;
+        }
+        .back-link {
+            margin-top: 20px;
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            background: #2980b9;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .back-link:hover {
+            background: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>Post Your Travel Plans</h1>
+    <form id="postForm" style="padding: 50px;">
+        <label for="travel-date">Travel Date:</label>
+        <input type="date" id="travel-date" name="travelDate" required>
+        
+        <label for="travel-plan">Your Travel Plans:</label>
+        <textarea id="travel-plan" name="travelPlan" rows="5" placeholder="Briefly describe your travel plans..." required></textarea>
+        
+        <button type="submit" id="submit-btn" style="padding:5px; ">Submit</button>
+    </form>
+    <a href="index.html" class="back-link">Back to Home</a>
+
+    <script>
+        document.getElementById('postForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const travelDate = document.getElementById('travel-date').value;
+            const travelPlan = document.getElementById('travel-plan').value;
+            
+            if (travelDate && travelPlan) {
+                alert('Your plans have been posted anonymously. If a match is found, you will be notified.');
+                document.getElementById('postForm').reset();
+            } else {
+                alert('Please fill in all fields before submitting.');
+            }
+        });
+    </script>
+</body>
+</html>
